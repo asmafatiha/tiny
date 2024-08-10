@@ -21,9 +21,8 @@ db.connect(err => {
   console.log('Connected to database.');
 });
 
-app.use(cors({
-    origin: ''  // Replace with your actual frontend domain
-  }));
+// Enable CORS for all routes
+app.use(cors());
   
 
 // API endpoint to get the user's name
