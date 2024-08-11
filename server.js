@@ -22,9 +22,13 @@
     });
 
     // Enable CORS for all routes
-    app.use(cors());
+    //app.use(cors());
     
-
+// Configure CORS with specific origin and credentials support
+app.use(cors({
+    origin: 'http://riankristoffersen.com', // Your frontend domain
+    credentials: true // Allow credentials like cookies or HTTP authentication
+  }));
     // API endpoint to get the user's name
     app.get('/user', (req, res) => {
     const query = 'SELECT name_user FROM user LIMIT 1';  // Modify the query according to your table structure
@@ -81,5 +85,5 @@
 
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server running at http://localhost:${port}`);
 });
